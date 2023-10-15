@@ -7,7 +7,7 @@ const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 const images = [
     {
-        label: ' Oakland Bay Bridge',
+        label: ' Oakland Bay',
         imgPath:
             'https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60',
     },
@@ -36,14 +36,14 @@ function Caruosal() {
     };
 
     return (
-        <div className="flex flex-col justify-center items-center gap-1">
+        <div className="flex flex-col justify-center items-center gap-1 ">
             <Typography variant="h5" color="blue-gray" className=' text-center text-3xl font-bold font-serif'>
                 Recommended trips
             </Typography>
             <Typography color="gray" className="mt-2 font-normal">
                 See the beauty of the world easily and safely with us.
             </Typography>
-            <div className="max-w-screen-md">
+            <div className="max-w-screen-md w-full h-full">
                 <figure className="relative h-96">
                     <AutoPlaySwipeableViews
                         axis={'x'} // Use your axis value
@@ -63,8 +63,8 @@ function Caruosal() {
                             </div>
                         ))}
                     </AutoPlaySwipeableViews>
-                    <figcaption className="absolute bottom-0 left-1/2 flex items-center w-1/2 -translate-x-2/4 justify-center rounded-xl border border-white bg-white/75 py-4 px-6 shadow-lg shadow-black/5 saturate-200 backdrop-blur-sm">
-                        <span className="text-sm font-semibold leading-5 text-gray-900">
+                    <figcaption className="absolute bottom-[44%] left-1/2 flex items-center w-1/2 -translate-x-2/4 justify-center">
+                        <span className="font-hologa leading-5 text-white text-[5vw] align-bottom">
                             {images[activeStep].label}
                         </span>
                     </figcaption>
@@ -78,3 +78,4 @@ function Caruosal() {
 }
 
 export default Caruosal;
+

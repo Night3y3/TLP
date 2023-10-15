@@ -7,24 +7,35 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import done from "../../../Assets/done.json"
+import { Snackbar } from "@mui/material";
+import MuiAlert, { AlertProps } from '@mui/material/Alert';
+
+const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
+    props,
+    ref,
+) {
+    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 
 const Payment: React.FC = () => {
-    const [itemPrice, setItemPrice] = useState<number>(0);
-    const [quantity, setQuantity] = useState<number>(1);
 
-    const totalCost = itemPrice * quantity;
+    const [open, setOpen] = React.useState(false);
 
-    const [isPaymentDone, setIsPaymentDone] = useState<boolean>(true);
+    const handleClick = () => {
+        setOpen(true);
+    };
 
-    const handlePayment = () => {
-        // Add your payment processing logic here
-        alert("Payment processed successfully!");
-        setIsPaymentDone(false);
+    const handleClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+
+        setOpen(false);
     };
 
     return (
         <div>
-            {isPaymentDone ? (
+            {!open ? (
                 <div>
                     <Typography color="blue-gray" className='text-center text-9xl font-bold font-hologa'>
                         Payment💰
@@ -45,11 +56,12 @@ const Payment: React.FC = () => {
                                 </CardContent>
                                 <CardActions>
                                     <Button
-                                        onClick={handlePayment}
+                                        onClick={handleClick}
                                         className="bg-blue-500 text-white py-2 px-4 rounded-md transition-all hover:bg-blue-600 hover:shadow-xl"
                                     >
                                         Pay Now
                                     </Button>
+
                                 </CardActions>
                             </Card>
                         </div>
@@ -57,6 +69,11 @@ const Payment: React.FC = () => {
                 </div>
             ) : (
                 <div>
+                    <Snackbar open={open} onClose={handleClose}>
+                        <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+                            Payment Done😃
+                        </Alert>
+                    </Snackbar>
                     <Lottie animationData={done} />
                 </div>
             )}
