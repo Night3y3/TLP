@@ -5,7 +5,8 @@ import { FaHotel } from "react-icons/fa";
 import { MdOutlineTravelExplore, MdOutlinePayment } from "react-icons/md";
 import PersonInformation from "../PersonInformation/PersonInformation";
 import MyRadioGroup from "../PlaneBooking/PlaneBooking"
-import HotelCard from "../HotelCard/HotelCard";
+import SelectionContainer from "../Hotel/SelectionContainner";
+import Payment from "../Payment/Payment";
 
 function getStepContent(step: number) {
     switch (step) {
@@ -14,7 +15,9 @@ function getStepContent(step: number) {
         case 1:
             return <MyRadioGroup />;
         case 2:
-            return <HotelCard />;
+            return <SelectionContainer />;
+        case 3:
+            return <Payment />;
         default:
             return "Unknown step";
     }
@@ -82,7 +85,7 @@ export function LinearStepper() {
                         className={`bg-green-500 text-white py-2 px-4 rounded-md ${isLastStep ? "cursor-not-allowed bg-gray-300" : "hover:bg-green-600"
                             } transition-all`}
                     >
-                        {activeStep === 4 ? "Finish" : "Next"}
+                        {activeStep === 3 ? "Finish" : "Next"}
                     </Button>
                 </div>
             </div>

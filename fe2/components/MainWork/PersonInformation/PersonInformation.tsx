@@ -35,7 +35,7 @@ export default function PersonInformation() {
             <div className='w-1/4 h-1/4 mx-auto my-auto'>
                 <Lottie animationData={userAnimation} />
             </div>
-            <Typography variant="h5" color="blue-gray" className=' text-center text-3xl font-bold font-serif'>
+            <Typography variant="h5" color="blue-gray" className=' text-center text-9xl font-bold font-hologa'>
                 User Information
             </Typography>
             <div className=' flex justify-between gap-2'>
