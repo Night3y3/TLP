@@ -36,7 +36,7 @@ export default function PersonInformation() {
                 <Lottie animationData={userAnimation} />
             </div>
             <Typography variant="h5" color="blue-gray" className=' text-center text-9xl font-bold font-hologa'>
-                User Information
+                User Information👤
             </Typography>
             <div className=' flex justify-between gap-2'>
                 <TextField

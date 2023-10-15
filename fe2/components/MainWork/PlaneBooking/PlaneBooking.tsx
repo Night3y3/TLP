@@ -48,7 +48,7 @@ const MyRadioGroup: React.FC = () => {
   return (
     <div>
       <Typography color="blue-gray" className=' text-center text-9xl font-bold font-hologa'>
-        Destination Selection :
+        Destination Selection🌏 :
       </Typography>
       <FormControl component="fieldset">
         {/* <FormLabel component="legend">Where you want to Travel?</FormLabel> */}
@@ -97,7 +97,7 @@ const MyRadioGroup: React.FC = () => {
       </FormControl>
       {selectedValue !== '' && <div className=' mt-10'>
         <div className=' flex flex-col gap-10'>
-          <h1 className=' text-center text-9xl font-bold font-hologa'> Select Your Dates</h1>
+          <h1 className=' text-center text-9xl font-bold font-hologa'> Select Your Dates 📅 :</h1>
           <div>
             <DateRange />
           </div>

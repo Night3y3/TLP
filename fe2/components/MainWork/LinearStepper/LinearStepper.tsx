@@ -5,7 +5,7 @@ import { FaHotel } from "react-icons/fa";
 import { MdOutlineTravelExplore, MdOutlinePayment } from "react-icons/md";
 import PersonInformation from "../PersonInformation/PersonInformation";
 import MyRadioGroup from "../PlaneBooking/PlaneBooking"
-import SelectionContainer from "../Hotel/SelectionContainner";
+import SelectionContainer from "../Hotel/Hotel";
 import Payment from "../Payment/Payment";
 
 function getStepContent(step: number) {
@@ -65,12 +65,13 @@ export function LinearStepper() {
                             <MdOutlinePayment className="w-5 h-5 text-white" />
                         </Step>
 
+
                     </Stepper>
                 </div>
                 <div className=" mt-10">
                     {getStepContent(activeStep)}
                 </div>
-                <div className="mt-16 flex justify-between">
+                <div className="mt-16 flex justify-between items-center">
                     <Button
                         onClick={handlePrev}
                         disabled={isFirstStep}
@@ -79,14 +80,15 @@ export function LinearStepper() {
                     >
                         Prev
                     </Button>
-                    <Button
-                        onClick={handleNext}
-                        disabled={isLastStep}
-                        className={`bg-green-500 text-white py-2 px-4 rounded-md ${isLastStep ? "cursor-not-allowed bg-gray-300" : "hover:bg-green-600"
-                            } transition-all`}
-                    >
-                        {activeStep === 3 ? "Finish" : "Next"}
-                    </Button>
+                    {activeStep < 3 &&
+                        <Button
+                            onClick={handleNext}
+                            className={`bg-green-500 text-white py-2 px-4 rounded-md ${isLastStep ? "cursor-not-allowed bg-gray-300" : "hover:bg-green-600"
+                                } transition-all`}
+                        >
+                            {activeStep === 2 ? "Pay" : "Next"}
+                        </Button>
+                    }
                 </div>
             </div>
         </div>

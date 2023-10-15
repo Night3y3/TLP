@@ -78,7 +78,7 @@ const SelectionContainer: React.FC = () => {
 
     return (
         <div><Typography color="blue-gray" className=' text-center text-9xl font-bold font-hologa'>
-            Hotel Selection :
+            Hotel Selection🏨 :
         </Typography>
             <div className="grid grid-cols-2 gap-4">
                 {options.map((option, index) => (

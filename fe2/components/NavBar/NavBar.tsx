@@ -7,6 +7,8 @@ import Goa from '../../Assets/Goa.jpg'
 import TamilNadu from '../../Assets/tamilnadu.jpg'
 import { Shery } from 'sheryjs'
 import { Helmet } from "react-helmet"
+import Link from 'next/link'
+import { useUser, UserButton } from '@clerk/nextjs'
 
 const NavBar = () => {
     // useEffect(() => {
@@ -19,6 +21,8 @@ const NavBar = () => {
     const handleHover = (image: any) => {
         setBackgroundImage(image);
     };
+
+    const { isSignedIn, user } = useUser();
 
     return (
         <div className=' w-full h-[100vh] mb-10'>
@@ -70,8 +74,17 @@ const NavBar = () => {
                             <div className=' font-extrabold font-serif text-3xl text-yellow-300'>T-Planner</div>
                             <a href="#" className=' text-white uppercase no-underline font-semibold text-sm'>Home</a>
                         </div>
-                        <div>
+                        <div className=' flex gap-10 items-center'>
                             <a href="#" className=' text-white uppercase no-underline font-semibold text-sm'>Reviews</a>
+                            {!isSignedIn ? (<button className=" bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                                <Link href="/Loading">
+                                    Sign In
+                                </Link>
+                            </button>) : (<div className='flex gap-5'>
+                                <div className='font-hologa text-[2vw] text-white leading-[1]'>Hello, {user.firstName}  </div>
+
+                                <UserButton />
+                            </div>)}
                         </div>
 
                     </div>
